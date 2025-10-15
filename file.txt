@@ -1,0 +1,435 @@
+<!DOC<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqsa Mahak - Data Scientist Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <!-- Load Lucide Icons (for professional icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom styles and configuration for LIGHT mode preference */
+        :root {TYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+            --primary-color: #2563eb; /* Tailwind blue-600 */
+            --background-color: #f9fafb; /* Tailwind gray-50 (Very light) */
+            --text-color: #374151; /* Tailwind gray-700 (Dark text) */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        /* --- BACKGROUND ANIMATION STYLES (Kept subtle colors) --- */
+        #bg-animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -10;
+        }
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            opacity: 0.25; /* Subtle color blending */
+            filter: blur(150px);
+            animation: blob-move 30s infinite alternate;
+        }
+
+        #blob-1 { background: #3b82f6; top: 10%; left: 5%; } /* Blue */
+        #blob-2 { background: #10b981; top: 60%; right: 10%; animation-delay: -5s; } /* Green */
+        #blob-3 { background: #ec4899; bottom: 5%; left: 40%; animation-delay: -10s; } /* Pink */
+
+        @keyframes blob-move {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30vw, -10vh) scale(1.1); }
+            66% { transform: translate(-20vw, 20vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* --- FROSTED GLASS EFFECT (LIGHT VERSION) --- */
+        #app {
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            /* Semi-transparent white background */
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            /* Added shadow for depth on light background */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* Standard Title Styles */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 9999px; /* rounded-full */
+        }
+        /* Loader styles for the AI tool */
+        .loader {
+            border: 4px solid #e5e7eb; /* Light gray border */
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen">
+
+    <!-- BACKGROUND ANIMATION CONTAINER (Behind Content) -->
+    <div id="bg-animation-container">
+        <div id="blob-1" class="blob"></div>
+        <div id="blob-2" class="blob"></div>
+        <div id="blob-3" class="blob"></div>
+    </div>
+
+
+    <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- HEADER / HERO SECTION -->
+        <header id="hero" class="text-center py-16 lg:py-24 bg-transparent rounded-xl mb-12">
+            <div class="mb-6">
+                <!-- Profile picture updated using the uploaded file (image_563dec.jpg). -->
+                <img src="image_563dec.jpg"
+                     alt="Aqsa Mahak's Professional Photo"
+                     class="w-32 h-32 rounded-full mx-auto border-4 border-blue-600 shadow-lg object-cover">
+            </div>
+            <h1 class="text-5xl lg:text-7xl font-extrabold text-gray-900 mb-2">
+                Aqsa Mahak
+            </h1>
+            <p class="text-2xl lg:text-3xl font-light text-blue-600 mb-6">
+                Financial Analyst & ML Engineer
+            </p>
+            <p class="max-w-3xl mx-auto text-lg text-gray-700">
+                Data-driven professional passionate about extracting actionable insights from complex datasets and deploying robust machine learning solutions. Focused on **Financial Modeling**, **Data Analysis**, and **Predictive Analytics**.
+            </p>
+
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#projects" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
+                    <i data-lucide="layout-grid" class="w-5 h-5 mr-2"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-base font-medium rounded-full text-blue-600 hover:bg-blue-600 hover:text-white transition duration-300">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                    Get in Touch
+                </a>
+            </div>
+        </header>
+
+        <!-- ABOUT ME / SKILLS SECTION (UPDATED) -->
+        <section id="about" class="py-12">
+            <h2 class="section-title text-blue-600">About Me & Skills</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Bio Card -->
+                <div class="md:col-span-1 bg-white/90 p-6 rounded-xl shadow-lg h-full border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">My Story</h3>
+                    <p class="text-gray-700 space-y-4">
+                        <p>I am a highly motivated Financial Analyst specializing in leveraging **Python** for **data-driven decision-making** and insights generation. Currently pursuing a B.Com degree, my expertise bridges core financial principles with advanced analytical techniques.</p>
+                        <p>My work focuses on transforming raw financial data into clear reports and actionable models. I am proficient in developing analytical tools, automating reporting, and using my content platform **Blogger** to share insights.</p>
+                    </p>
+                </div>
+
+                <!-- Technical Skills List -->
+                <div class="md:col-span-2 bg-white/90 p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">Technical Stack</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <!-- Python -->
+                        <div class="flex items-center bg-gray-200 text-gray-800 p-3 rounded-lg"><i data-lucide="python" class="w-5 h-5 text-green-600 mr-2"></i>Python (Core Language)</div>
+                        <!-- Blogger -->
+                        <div class="flex items-center bg-gray-200 text-gray-800 p-3 rounded-lg"><i data-lucide="edit" class="w-5 h-5 text-pink-600 mr-2"></i>Blogger (Content Creation)</div>
+                        <!-- GitHub -->
+                        <div class="flex items-center bg-gray-200 text-gray-800 p-3 rounded-lg"><i data-lucide="github" class="w-5 h-5 text-gray-600 mr-2"></i>GitHub (Version Control)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="py-12">
+            <h2 class="section-title text-blue-600">Key Projects</h2>
+            <p class="text-gray-700 mb-8">These projects showcase my ability to go from raw data to a deployed, valuable solution. Click the icons to view the code and live demo.</p>
+
+            <div class="space-y-10">
+                <!-- Project 1: Time Series Forecasting -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                    <div class="md:w-1/4 flex-shrink-0">
+                        <img src="https://placehold.co/400x300/1e40af/ffffff?text=FORECAST" alt="Time Series Project Visualization" class="w-full h-auto rounded-lg object-cover border border-blue-400">
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-3xl font-bold text-blue-600 mb-2">Advanced Sales Forecasting using Prophet & LSTM</h3>
+                        <p class="text-lg text-gray-500 italic mb-3">#Time-Series #DeepLearning #Python #MLOps</p>
+                        <p class="text-gray-700 mb-4">
+                            Developed a hybrid forecasting model to predict retail sales 90 days in advance, resulting in a **15% reduction in inventory waste**. Compared traditional ARIMA/Prophet models against modern LSTM neural networks, demonstrating superiority in capturing non-linear trends and seasonality.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/aqsamahak/sales-forecasting" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 flex items-center font-medium">
+                                <i data-lucide="github" class="w-5 h-5 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://aqsamahak.github.io/sales-demo" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 flex items-center font-medium">
+                                <i data-lucide="external-link" class="w-5 h-5 mr-1"></i> Live Streamlit Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: NLP/LLM Application -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                    <div class="md:w-1/4 flex-shrink-0">
+                        <img src="https://placehold.co/400x300/10b981/ffffff?text=NLP" alt="NLP Project Visualization" class="w-full h-auto rounded-lg object-cover border border-emerald-400">
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-3xl font-bold text-blue-600 mb-2">Customer Feedback Sentiment Analyzer with BERT</h3>
+                        <p class="text-lg text-gray-500 italic mb-3">#NLP #Sentiment #DeepLearning #HuggingFace</p>
+                        <p class="text-gray-700 mb-4">
+                            Built an end-to-end pipeline to automatically classify and summarize customer support tickets. Used a pre-trained **BERT** model for fine-tuning on a proprietary dataset of support conversation transcripts. The solution achieved an F1 score of **0.91** on a three-class classification task.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/aqsamahak/bert-sentiment" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 flex items-center font-medium">
+                                <i data-lucide="github" class="w-5 h-5 mr-1"></i> GitHub Repo
+                            </a>
+                            <a href="https://www.kaggle.com/aqsamahak/notebooks/sentiment-analyzer-walkthrough" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 flex items-center font-medium">
+                                <i data-lucide="book-open" class="w-5 h-5 mr-1"></i> Kaggle/Notebook Walkthrough
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: AI Tool (Image Generation) - NEW -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-3xl font-bold text-blue-600 mb-2 flex items-center">
+                        <i data-lucide="bot" class="w-7 h-7 mr-2"></i> AI Image Generation Studio (Imagen 3.0 Demo)
+                    </h3>
+                    <p class="text-lg text-gray-500 italic mb-4">#GenerativeAI #DeepLearning #APIManagement</p>
+                    <p class="text-gray-700 mb-6">
+                        This interactive project demonstrates the integration of a powerful foundation model. Input a prompt and generate a unique image, showcasing proficiency in external API interaction and real-time application development. This is a great demonstration of a deployed machine learning service.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Input and Controls -->
+                        <div>
+                            <label for="imagePrompt" class="block text-sm font-medium text-gray-700 mb-2">Enter your prompt (e.g., "A digital painting of a futuristic city at sunset, neon lights.")</label>
+                            <textarea id="imagePrompt" rows="3" class="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-blue-500 focus:border-blue-500" placeholder="A friendly robot teaching kids how to code, 3D render." onkeydown="if(event.key === 'Enter' && event.shiftKey){ event.preventDefault(); generateImage(); }"></textarea>
+                            <button onclick="generateImage()" id="generateBtn" class="mt-4 w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-green-600 hover:bg-green-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i data-lucide="wand-2" class="w-5 h-5 mr-2"></i>
+                                Generate Image
+                            </button>
+                            <div class="mt-4 text-gray-500 text-sm">
+                                <p>Tip: Use Shift + Enter in the box to generate, or click the button.</p>
+                            </div>
+                        </div>
+
+                        <!-- Output Area -->
+                        <div class="relative min-h-[250px] bg-gray-100 rounded-xl flex items-center justify-center p-4 overflow-hidden border border-gray-300">
+                            <div id="imageLoader" class="hidden flex-col items-center">
+                                <div class="loader mb-3"></div>
+                                <p class="text-blue-600">Generating stunning image...</p>
+                            </div>
+                            <img id="generatedImage" class="hidden w-full h-auto max-h-[400px] object-contain rounded-lg shadow-lg" alt="Generated AI Image">
+                            <p id="imagePlaceholder" class="text-gray-400 text-center">Your generated image will appear here.</p>
+                            <div id="imageError" class="hidden text-red-600 text-center font-semibold"></div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://github.com/aqsamahak/imagen-demo" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-300 flex items-center font-medium">
+                            <i data-lucide="github" class="w-5 h-5 mr-1"></i> View Code Implementation
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT & FOOTER SECTION -->
+        <section id="contact" class="py-12">
+            <h2 class="section-title text-blue-600">Connect with Me</h2>
+            <div class="bg-white/90 p-8 rounded-xl shadow-lg border border-gray-200 text-center">
+                <p class="text-2xl text-gray-900 font-semibold mb-6">
+                    Ready to discuss your next data challenge?
+                </p>
+
+                <div class="flex justify-center space-x-6 text-gray-700">
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/aqsamahak" target="_blank" class="hover:text-blue-600 transition duration-300 flex items-center text-lg">
+                        <i data-lucide="linkedin" class="w-6 h-6 mr-2"></i> LinkedIn
+                    </a>
+                    <!-- GitHub (UPDATED) -->
+                    <a href="https://github.com/aqsamahak/Aqsa-mahak" target="_blank" class="hover:text-blue-600 transition duration-300 flex items-center text-lg">
+                        <i data-lucide="github" class="w-6 h-6 mr-2"></i> Aqsa Mahak Saifi
+                    </a>
+                    <!-- Email (CORRECTED) -->
+                    <a href="mailto:aqsamahaksaifi@gmail.com" class="hover:text-blue-600 transition duration-300 flex items-center text-lg">
+                        <i data-lucide="mail" class="w-6 h-6 mr-2"></i> aqsamahaksaifi@gmail.com
+                    </a>
+                    <!-- Mobile Number (NEW) -->
+                    <a href="tel:+916397802265" class="hover:text-blue-600 transition duration-300 flex items-center text-lg">
+                        <i data-lucide="phone" class="w-6 h-6 mr-2"></i> +91 63978 02265
+                    </a>
+                    <!-- CV/Resume -->
+                     <a href="[Link-to-your-CV-PDF]" target="_blank" class="hover:text-blue-600 transition duration-300 flex items-center text-lg border border-blue-600 px-3 py-1 rounded-full">
+                        <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Resume
+                    </a>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-300 text-gray-500">
+                    &copy; 2025 Aqsa Mahak. Built with HTML and Tailwind CSS.
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script to render Lucide Icons and handle AI Generation -->
+    <script>
+        lucide.createIcons();
+
+        // --- AI Image Generation Logic ---
+        
+        const IMAGE_MODEL_NAME = 'imagen-3.0-generate-002';
+        const apiKey = ""; // Leave as empty string for Canvas environment
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${IMAGE_MODEL_NAME}:predict?key=${apiKey}`;
+
+        const imagePromptEl = document.getElementById('imagePrompt');
+        const generateBtn = document.getElementById('generateBtn');
+        const imageLoader = document.getElementById('imageLoader');
+        const generatedImage = document.getElementById('generatedImage');
+        const imagePlaceholder = document.getElementById('imagePlaceholder');
+        const imageError = document.getElementById('imageError');
+
+        function showLoading(isLoading) {
+            generateBtn.disabled = isLoading;
+            imagePromptEl.disabled = isLoading;
+            imageError.classList.add('hidden');
+            // Hide/show the image and placeholder based on loading state
+            if (isLoading) {
+                generatedImage.classList.add('hidden');
+                imagePlaceholder.classList.add('hidden');
+            }
+            
+            if (isLoading) {
+                imageLoader.classList.remove('hidden');
+                generateBtn.innerHTML = '<div class="loader w-5 h-5 border-2 mr-2"></div> Generating...';
+            } else {
+                imageLoader.classList.add('hidden');
+                generateBtn.innerHTML = '<i data-lucide="wand-2" class="w-5 h-5 mr-2"></i> Generate Image';
+                // Re-render Lucide icons after changing button content
+                lucide.createIcons();
+            }
+        }
+
+        async function exponentialBackoffFetch(url, options, maxRetries = 5) {
+            for (let attempt = 0; attempt < maxRetries; attempt++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status === 429 && attempt < maxRetries - 1) {
+                        // Exponential backoff with jitter: (2^attempt * 1000) + random_jitter
+                        const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        continue; // Retry
+                    }
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    if (attempt === maxRetries - 1) {
+                        throw error;
+                    }
+                    // Exponential backoff with jitter
+                    const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+        }
+
+        async function generateImage() {
+            const prompt = imagePromptEl.value.trim();
+            if (!prompt) {
+                imageError.textContent = "Please enter a descriptive prompt to generate an image.";
+                imageError.classList.remove('hidden');
+                imagePlaceholder.classList.remove('hidden');
+                return;
+            }
+
+            showLoading(true);
+
+            const payload = { 
+                instances: { prompt: prompt }, 
+                parameters: { "sampleCount": 1 } 
+            };
+
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            };
+
+            try {
+                const response = await exponentialBackoffFetch(apiUrl, options);
+                const result = await response.json();
+
+                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                    const base64Data = result.predictions[0].bytesBase64Encoded;
+                    const imageUrl = `data:image/png;base64,${base64Data}`;
+                    
+                    generatedImage.src = imageUrl;
+                    generatedImage.classList.remove('hidden');
+                    imagePlaceholder.classList.add('hidden');
+
+                } else {
+                    const errorMessage = result.error?.message || "Failed to generate image. The model might have rejected the prompt, or an API error occurred.";
+                    imageError.textContent = errorMessage;
+                    imageError.classList.remove('hidden');
+                    imagePlaceholder.classList.add('hidden');
+                    console.error("API response error:", result);
+                }
+
+            } catch (error) {
+                imageError.textContent = "A connection error occurred. Please check the console for details.";
+                imageError.classList.remove('hidden');
+                imagePlaceholder.classList.add('hidden');
+                console.error("Fetch error:", error);
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Populate placeholders with specific details
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update Name in Footer
+            const footerText = document.querySelector('#contact .text-gray-500');
+            if (footerText) {
+                footerText.innerHTML = footerText.innerHTML.replace('[Your Name]', 'Aqsa Mahak');
+            }
+        });
+
+    </script>
+</body>
+</html>
